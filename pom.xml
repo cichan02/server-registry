@@ -15,7 +15,7 @@
         <start-class>by.piskunou.solvdlaba.EurekaServerApplication</start-class>
         <java.version>17</java.version>
         <maven.version>3.9.0</maven.version>
-        <springboot.version>3.0.5</springboot.version>
+        <spring-boot.version>3.0.5</spring-boot.version>
 
         <snakeyaml.vesion>2.0</snakeyaml.vesion>
         <eureka.version>4.0.1</eureka.version>
@@ -25,8 +25,10 @@
         <httpclient.version>4.5.14</httpclient.version>
         <commons-codes.version>1.15</commons-codes.version>
         <jettison.version>1.5.4</jettison.version>
+        <json-smart.version>2.4.10</json-smart.version>
         <slf4j.version>2.0.7</slf4j.version>
-        <spring-cloud.version>2022.0.2</spring-cloud.version>
+        <caffeine.version>3.1.6</caffeine.version>
+        <spring-cloud.dependencies.version>2022.0.2</spring-cloud.dependencies.version>
 
         <maven.clean.version>3.2.0</maven.clean.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
@@ -36,7 +38,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
+            <version>${spring-boot.version}</version>
         </dependency>
 
         <!-- Additional newer dependencies to Spring Boot -->
@@ -87,14 +89,31 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springboot.version}</version>
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>${json-smart.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+
+        <!--  Cache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine.version}</version>
         </dependency>
     </dependencies>
 
@@ -103,7 +122,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <version>${spring-cloud.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -121,7 +140,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springboot.version}</version>
+                <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>by.piskunou.solvdlaba.EurekaServerApplication</mainClass>
                     <layout>JAR</layout>
